@@ -11,11 +11,9 @@ public class Lista8<T> {
     
     public boolean insertarPrincipio(T el) {
         if (PRI == null) {
-            // Lista vacía
             PRI = new Caja<>(null, el, null);
             ULT = PRI;
         } else {
-            // Lista con elementos
             Caja<T> nuevaCaja = new Caja<>(null, el, PRI);
             PRI.setAnterior(nuevaCaja);
             PRI = nuevaCaja;
@@ -38,17 +36,14 @@ public class Lista8<T> {
     
     public boolean eliminarPrincipio() {
         if (PRI == null) {
-            // Lista vacía
             res = false;
             return res;
         }
         
         if (PRI == ULT) {
-            // Solo un elemento
             PRI = null;
             ULT = null;
         } else {
-            // Más de un elemento
             PRI = PRI.getSiguiente();
             PRI.setAnterior(null);
         }
@@ -59,17 +54,14 @@ public class Lista8<T> {
     
     public boolean eliminarFinal() {
         if (ULT == null) {
-            // Lista vacía
             res = false;
             return res;
         }
         
         if (PRI == ULT) {
-            // Solo un elemento
             PRI = null;
             ULT = null;
         } else {
-            // Más de un elemento
             ULT = ULT.getAnterior();
             ULT.setSiguiente(null);
         }
@@ -131,21 +123,7 @@ public class Lista8<T> {
         return res;
     }
     
-    // Método auxiliar para verificar si la lista está vacía
     public boolean estaVacia() {
         return PRI == null;
-    }
-    
-    // Método auxiliar para obtener el tamaño
-    public int obtenerTamaño() {
-        int contador = 0;
-        Caja<T> actual = PRI;
-        
-        while (actual != null) {
-            contador++;
-            actual = actual.getSiguiente();
-        }
-        
-        return contador;
     }
 }

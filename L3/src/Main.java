@@ -19,7 +19,7 @@ public class Main {
     }
 
     private static void mostrarMenu() {
-        System.out.println("MENU LISTA8");
+        System.out.println("MENU LISTA 8");
         System.out.println("═══════════════════════════");
         System.out.println("1. Insertar al Principio");
         System.out.println("2. Insertar al Final");
@@ -123,7 +123,6 @@ public class Main {
     private static void mostrarLista() {
         System.out.println("\nEstado actual de la lista:");
         lista.mostrarLista();
-        System.out.println("Tamaño actual: " + lista.obtenerTamaño() + " elementos");
     }
     
     private static void buscarSecuencialmente() {
