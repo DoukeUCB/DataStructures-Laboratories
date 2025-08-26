@@ -5,7 +5,7 @@ public class Main {
         Lista2<Integer> lista3 = new Lista2<>();
 
 
-        /*//Insertar al principio
+        //Insertar al principio
         System.out.println("\n--- Insertando al principio ---");
         lista.insertarPrincipio(4);
         lista.mostrarLista();
@@ -53,7 +53,7 @@ public class Main {
         while (!lista.estaVacia()) {
             lista.eliminarPrincipio();
             lista.mostrarLista();
-        }*/
+        }
 
         System.out.println("\n--- Llenando la lista ---");
         for (int i = 1; i <= 4; i++) {
