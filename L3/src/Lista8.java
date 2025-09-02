@@ -37,36 +37,31 @@ public class Lista8<T> {
     public boolean eliminarPrincipio() {
         if (PRI == null) {
             res = false;
-            return res;
-        }
-        
-        if (PRI == ULT) {
-            PRI = null;
-            ULT = null;
         } else {
-            PRI = PRI.getSiguiente();
-            PRI.setAnterior(null);
+            if (PRI == ULT) {
+                PRI = null;
+                ULT = null;
+            } else {
+                PRI = PRI.getSiguiente();
+                PRI.setAnterior(null);
+            }
+            res = true;
         }
-        
-        res = true;
         return res;
     }
     
     public boolean eliminarFinal() {
         if (ULT == null) {
             res = false;
-            return res;
-        }
-        
-        if (PRI == ULT) {
+        } else if (PRI == ULT) {
             PRI = null;
             ULT = null;
+            res = true;
         } else {
             ULT = ULT.getAnterior();
             ULT.setSiguiente(null);
+            res = true;
         }
-        
-        res = true;
         return res;
     }
     
