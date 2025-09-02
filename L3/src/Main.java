@@ -8,28 +8,29 @@ public class Main {
         try (scanner) {
             int opcion;
             
-            do {
-                mostrarMenu();
-                opcion = leerOpcion();
-                procesarOpcion(opcion);
-            } while (opcion != 8);
-            
-            System.out.println("Bye!");
+        do {
+            mostrarMenu();
+            opcion = leerOpcion();
+            procesarOpcion(opcion);
+        } while (opcion != 9);            System.out.println("Bye!");
         }
     }
 
     private static void mostrarMenu() {
-        System.out.println("MENU LISTA 8");
-        System.out.println("═══════════════════════════");
-        System.out.println("1. Insertar al Principio");
-        System.out.println("2. Insertar al Final");
-        System.out.println("3. Eliminar del Principio");
-        System.out.println("4. Eliminar del Final");
-        System.out.println("5. Mostrar Lista");
-        System.out.println("6. Buscar Secuencialmente");
-        System.out.println("7. Buscar Recursivamente");
-        System.out.println("8. Salir");
-        System.out.print("Seleccione una opción: ");
+        System.out.println("\n+====================================+");
+        System.out.println("|           MENU LISTA8              |");
+        System.out.println("+====================================+");
+        System.out.println("| 1. Insertar al Principio          |");
+        System.out.println("| 2. Insertar al Final              |");
+        System.out.println("| 3. Eliminar del Principio         |");
+        System.out.println("| 4. Eliminar del Final             |");
+        System.out.println("| 5. Mostrar Lista                  |");
+        System.out.println("| 6. Buscar Secuencialmente         |");
+        System.out.println("| 7. Buscar Recursivamente          |");
+        System.out.println("| 8. Buscar y Eliminar              |");
+        System.out.println("| 9. Salir                          |");
+        System.out.println("+====================================+");
+        System.out.print("Seleccione una opcion: ");
     }
     
     private static int leerOpcion() {
@@ -50,9 +51,9 @@ public class Main {
             case 5 -> mostrarLista();
             case 6 -> buscarSecuencialmente();
             case 7 -> buscarRecursivamente();
-            case 8 -> {
-            }
-            default -> System.out.println("Opción no válida. Intente nuevamente.");
+            case 8 -> buscarYEliminar();
+            case 9 -> System.out.println("Saliendo del programa...");
+            default -> System.out.println("Opcion no valida. Intente nuevamente.");
         }
     }
     
@@ -162,6 +163,30 @@ public class Main {
                 System.out.println("Elemento " + elemento + " ENCONTRADO mediante búsqueda recursiva.");
             } else {
                 System.out.println("Elemento " + elemento + " NO ENCONTRADO mediante búsqueda recursiva.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: Ingrese un número válido.");
+            scanner.nextLine();
+        }
+    }
+    
+    private static void buscarYEliminar() {
+        if (lista.estaVacia()) {
+            System.out.println("La lista está vacía. No hay elementos para buscar y eliminar.");
+            return;
+        }
+        
+        System.out.print("Ingrese el elemento a buscar y eliminar: ");
+        try {
+            int elemento = scanner.nextInt();
+            boolean eliminado = lista.buscarYEliminar(elemento);
+            
+            if (eliminado) {
+                System.out.println("Elemento " + elemento + " ENCONTRADO Y ELIMINADO correctamente.");
+                System.out.println("Estado actual de la lista:");
+                lista.mostrarLista();
+            } else {
+                System.out.println("Elemento " + elemento + " NO ENCONTRADO. No se eliminó ningún elemento.");
             }
         } catch (Exception e) {
             System.out.println("Error: Ingrese un número válido.");

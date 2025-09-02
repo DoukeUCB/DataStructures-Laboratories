@@ -118,7 +118,80 @@ public class Lista8<T> {
         return res;
     }
     
+    // Método auxiliar para buscar y retornar la caja encontrada
+    private Caja<T> buscarCaja(T el) {
+        Caja<T> actual = PRI;
+        
+        while (actual != null) {
+            if (actual.getElemento().equals(el)) {
+                return actual;
+            }
+            actual = actual.getSiguiente();
+        }
+        
+        return null;
+    }
+    
+    // Buscar y eliminar elemento
+    public boolean buscarYEliminar(T el) {
+        // Primero verificamos si la lista está vacía
+        if (PRI == null) {
+            res = false;
+            return res;
+        }
+        
+        // Usamos búsqueda secuencial para encontrar el elemento
+        Caja<T> AUX = buscarCaja(el);
+        
+        // Si no se encontró el elemento
+        if (AUX == null) {
+            res = false;
+            return res;
+        }
+        
+        // Caso 1: El elemento está al principio
+        if (AUX == PRI) {
+            return eliminarPrincipio();
+        }
+        
+        // Caso 2: El elemento está al final
+        if (AUX == ULT) {
+            return eliminarFinal();
+        }
+        
+        // Caso 3: El elemento está en el medio
+        // Reasignamos los enlaces anterior y siguiente
+        Caja<T> anterior = AUX.getAnterior();
+        Caja<T> siguiente = AUX.getSiguiente();
+        
+        // El nodo anterior ahora apunta al siguiente
+        anterior.setSiguiente(siguiente);
+        // El nodo siguiente ahora apunta al anterior
+        siguiente.setAnterior(anterior);
+        
+        // Limpiamos las referencias del nodo eliminado (opcional, buena práctica)
+        AUX.setAnterior(null);
+        AUX.setSiguiente(null);
+        
+        res = true;
+        return res;
+    }
+    
+    // Método auxiliar para verificar si la lista está vacía
     public boolean estaVacia() {
         return PRI == null;
+    }
+    
+    // Método auxiliar para obtener el tamaño
+    public int obtenerTamaño() {
+        int contador = 0;
+        Caja<T> actual = PRI;
+        
+        while (actual != null) {
+            contador++;
+            actual = actual.getSiguiente();
+        }
+        
+        return contador;
     }
 }
