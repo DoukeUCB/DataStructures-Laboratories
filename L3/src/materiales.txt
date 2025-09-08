@@ -1,0 +1,18 @@
+3,1,Fisica,Calculadora
+3,1,Fisica,Libro de Fisica
+3,1,Fisica,Formulario
+2,0,Matematicas,Regla
+2,0,Matematicas,Compas
+2,0,Matematicas,Cuaderno
+4,1,Quimica,Tubo de ensayo
+4,1,Quimica,Microscopio
+4,1,Quimica,Manual de laboratorio
+1,0,Lenguaje,Diccionario
+1,0,Lenguaje,Libro de lectura
+1,0,Lenguaje,Cuaderno de caligrafía
+5,1,Historia,Atlas
+5,1,Historia,Libro de historia mundial
+5,1,Historia,Mapa político
+6,0,Arte,Pinceles
+6,0,Arte,Acuarelas
+6,0,Arte,Papel especial

@@ -17,19 +17,18 @@ public class Lista8Main {
     }
     
     private static void mostrarMenu() {
-        System.out.println("\n+====================================+");
-        System.out.println("|           MENU LISTA8              |");
-        System.out.println("+====================================+");
-        System.out.println("| 1. Insertar al Principio          |");
-        System.out.println("| 2. Insertar al Final              |");
-        System.out.println("| 3. Eliminar del Principio         |");
-        System.out.println("| 4. Eliminar del Final             |");
-        System.out.println("| 5. Mostrar Lista                  |");
-        System.out.println("| 6. Buscar Secuencialmente         |");
-        System.out.println("| 7. Buscar Recursivamente          |");
-        System.out.println("| 8. Buscar y Eliminar              |");
-        System.out.println("| 9. Volver al Menu Principal       |");
-        System.out.println("+====================================+");
+        System.out.println("MENU LISTA 8");
+        System.out.println("");
+        System.out.println("| 1. Insertar al Principio");
+        System.out.println("| 2. Insertar al Final");
+        System.out.println("| 3. Eliminar del Principio");
+        System.out.println("| 4. Eliminar del Final");
+        System.out.println("| 5. Mostrar Lista");
+        System.out.println("| 6. Buscar Secuencialmente");
+        System.out.println("| 7. Buscar Recursivamente");
+        System.out.println("| 8. Buscar y Eliminar");
+        System.out.println("| 9. Volver al Menu Principal");
+        System.out.println("");
         System.out.print("Seleccione una opcion: ");
     }
     
@@ -37,7 +36,7 @@ public class Lista8Main {
         try {
             return scanner.nextInt();
         } catch (Exception e) {
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine();
             return -1;
         }
     }
@@ -70,7 +69,7 @@ public class Lista8Main {
             }
         } catch (Exception e) {
             System.out.println("Error: Ingrese un número válido.");
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine();
         }
     }
     
@@ -87,7 +86,7 @@ public class Lista8Main {
             }
         } catch (Exception e) {
             System.out.println("Error: Ingrese un número válido.");
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine();
         }
     }
     
@@ -145,7 +144,7 @@ public class Lista8Main {
             }
         } catch (Exception e) {
             System.out.println("Error: Ingrese un número válido.");
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine();
         }
     }
     

@@ -188,4 +188,52 @@ public class Lista8<T> {
         
         return contador;
     }
+    
+    // Buscar y retornar la caja que contiene el elemento
+    public Caja<T> buscarCajaElemento(T el) {
+        Caja<T> actual = PRI;
+        
+        while (actual != null) {
+            if (actual.getElemento().equals(el)) {
+                return actual;
+            }
+            actual = actual.getSiguiente();
+        }
+        
+        return null;
+    }
+    
+    // Insertar con contador (si existe incrementa, si no existe inserta)
+    public boolean insertarConContador(T el) {
+        Caja<T> cajaExistente = buscarCajaElemento(el);
+        
+        if (cajaExistente != null) {
+            cajaExistente.incrementarContador();
+            return true;
+        } else {
+            return insertarFinal(el);
+        }
+    }
+    
+    // Mostrar lista con contadores
+    public void mostrarListaConContadores() {
+        if (PRI == null) {
+            System.out.println("Lista vacia");
+            return;
+        }
+        
+        System.out.print("[");
+        Caja<T> actual = PRI;
+        boolean primero = true;
+        
+        while (actual != null) {
+            if (!primero) {
+                System.out.print(", ");
+            }
+            System.out.print(actual.getElemento() + " (" + actual.getContador() + ")");
+            primero = false;
+            actual = actual.getSiguiente();
+        }
+        System.out.println("]");
+    }
 }

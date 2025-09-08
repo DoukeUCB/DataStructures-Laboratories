@@ -4,7 +4,6 @@ public class Nodo {
     private Nodo siguiente;
     private Lista8<String> listaMateriales;
     
-    // Constructor
     public Nodo(Nodo anterior, String nombre, Nodo siguiente) {
         this.anterior = anterior;
         this.nombre = nombre;
@@ -12,7 +11,6 @@ public class Nodo {
         this.listaMateriales = new Lista8<>();
     }
     
-    // Getters
     public Nodo getAnterior() {
         return anterior;
     }
@@ -28,8 +26,7 @@ public class Nodo {
     public Lista8<String> getListaMateriales() {
         return listaMateriales;
     }
-    
-    // Setters
+
     public void setAnterior(Nodo anterior) {
         this.anterior = anterior;
     }

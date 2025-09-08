@@ -4,11 +4,11 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-        System.out.println("BIENVENIDO AL SISTEMA DE ESTRUCTURAS DE DATOS");
-        System.out.println("Seleccione el programa que desea ejecutar:");
+        System.out.println("BIENVENIDO AL SISTEMA DE LISTAS");
+        System.out.println("Seleccione el menu:");
         System.out.println();
-        System.out.println("1. Lista8 - Operaciones basicas");
-        System.out.println("2. Sistema de Gestion de Materiales del Colegio");
+        System.out.println("1. Lista8");
+        System.out.println("2. Sistema del colegio");
         System.out.println("3. Salir");
         System.out.println();
         System.out.print("Ingrese su opcion: ");

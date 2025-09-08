@@ -1,11 +1,11 @@
 public class TablaHash {
     private static final int TAM = 12;
-    private final ListaLigada[] tabla;
+    private final ListaDeListas[] tabla;
     
     public TablaHash() {
-        tabla = new ListaLigada[TAM];
+        tabla = new ListaDeListas[TAM];
         for (int i = 0; i < TAM; i++) {
-            tabla[i] = new ListaLigada();
+            tabla[i] = new ListaDeListas();
         }
     }
     
