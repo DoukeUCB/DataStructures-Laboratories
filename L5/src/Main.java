@@ -1,3 +1,4 @@
+package src;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -9,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("SISTEMA DE GESTION DE TRABAJADORES");
         System.out.println("Tabla Hash con tamaño: " + tablaHash.getTamaño());
-        System.out.println("Capacidad maxima: 50 trabajadores");
         
         int opcion;
         do {
@@ -23,17 +23,17 @@ public class Main {
     }
     
     private static void mostrarMenu() {
-        System.out.println("|        MENU TABLA HASH TRABAJADORES     |");
+        System.out.println("MENU TABLA HASH");
         System.out.println("");
-        System.out.println("| 1. Insertar nombre");
-        System.out.println("| 2. Eliminar nombre");
-        System.out.println("| 3. Buscar nombre");
-        System.out.println("| 4. Mostrar tabla hash completa");
-        System.out.println("| 5. Mostrar solo posiciones ocupadas");
-        System.out.println("| 6. Leer nombres desde archivo");
-        System.out.println("| 7. Comparar tiempos de hash");
-        System.out.println("| 8. Procesar archivo con contadores");
-        System.out.println("| 9. Salir");
+        System.out.println("1. Insertar nombre");
+        System.out.println("2. Eliminar nombre");
+        System.out.println("3. Buscar nombre");
+        System.out.println("4. Mostrar tabla hash completa");
+        System.out.println("5. Mostrar solo posiciones ocupadas");
+        System.out.println("6. Leer nombres desde archivo");
+        System.out.println("7. Comparar tiempos de hash");
+        System.out.println("8. Procesar archivo con contadores");
+        System.out.println("9. Salir");
         System.out.println("");
         System.out.print("Seleccione una opcion: ");
     }
@@ -187,13 +187,8 @@ public class Main {
     
     private static void compararTiempos() {
         System.out.println("\n=== COMPARACION DE TIEMPOS DE HASH ===");
-        System.out.print("Ingrese el nombre del archivo (ejemplo: cienaniosdesoledad.txt): ");
+        System.out.print("Ingrese el nombre del archivo: ");
         String nombreArchivo = scanner.nextLine().trim();
-        
-        if (nombreArchivo.isEmpty()) {
-            nombreArchivo = "cienaniosdesoledad.txt";
-            System.out.println("Usando archivo por defecto: " + nombreArchivo);
-        }
         
         Hash hashResiduo = new Hash();
         Hash hashMultiplicacion = new Hash();
@@ -201,11 +196,11 @@ public class Main {
         try {
             File archivo = new File(nombreArchivo);
             
-            Scanner scannerFile = new Scanner(archivo);
+            Scanner scanner1 = new Scanner(archivo);
             long tiempoInicio1 = System.nanoTime();
             
-            while (scannerFile.hasNext()) {
-                String palabra = scannerFile.next().replaceAll("[^a-zA-Z]", "");
+            while (scanner1.hasNext()) {
+                String palabra = scanner1.next();
                 if (!palabra.isEmpty()) {
                     hashResiduo.insertarPalabraConContador(palabra);
                 }
@@ -213,13 +208,13 @@ public class Main {
             
             long tiempoFin1 = System.nanoTime();
             long tiempoResiduo = tiempoFin1 - tiempoInicio1;
-            scannerFile.close();
+            scanner1.close();
             
             Scanner scanner2 = new Scanner(archivo);
             long tiempoInicio2 = System.nanoTime();
             
             while (scanner2.hasNext()) {
-                String palabra = scanner2.next().replaceAll("[^a-zA-Z]", "");
+                String palabra = scanner2.next();
                 if (!palabra.isEmpty()) {
                     hashMultiplicacion.insertarPalabraConContadorMultiplicacion(palabra);
                 }

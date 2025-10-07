@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import L6.Lista8;
+
 public class Lista8Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Lista8<Integer> lista = new Lista8<>();

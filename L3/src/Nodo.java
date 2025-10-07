@@ -1,3 +1,5 @@
+import L6.Lista8;
+
 public class Nodo {
     private Nodo anterior;
     private String nombre;
