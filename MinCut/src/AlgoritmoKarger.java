@@ -85,10 +85,12 @@ public final class AlgoritmoKarger {
         }
 
         while (nodos.size() > 2 && !aristas.isEmpty()) { // Se ejecuta N-2 veces ⇒ O(N).
+            // Seleccionar una arista aleatoria
             AristaMutable seleccionada = aristas.get(random.nextInt(aristas.size())); // O(1) selección uniforme.
 
+            // Si es un auto-ciclo (lazo), lo ignoramos y eliminamos TODOS los lazos en este momento
             if (seleccionada.origen == seleccionada.destino) {
-                aristas.remove(seleccionada); // O(1) amortizado sobre ArrayList.
+                aristas.removeIf(a -> a.origen == a.destino); // Eliminar TODOS los auto-ciclos
                 continue;
             }
 
