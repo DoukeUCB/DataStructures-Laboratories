@@ -1,0 +1,14 @@
+LaPaz Oruro 3
+LaPaz Cochabamba 5
+LaPaz Pando 10
+Oruro Cochabamba 3
+Oruro Potosi 7
+Potosi Sucre 4
+Cochabamba Sucre 6
+Sucre Tarija 4
+Tarija SantaCruz 12
+Cochabamba SantaCruz 7
+Cochabamba Beni 8
+Beni SantaCruz 6
+Pando Beni 8
+Potosi Cochabamba 9

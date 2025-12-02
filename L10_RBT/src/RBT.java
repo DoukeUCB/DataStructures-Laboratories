@@ -13,8 +13,6 @@ class RBT<T extends Comparable<T>> {
     }
     
     private NOD_RBT<T> rotarIzquierda(NOD_RBT<T> nodo) {
-        System.out.println("Rotando a la izquierda el nodo: " + nodo.getElement());
-        
         NOD_RBT<T> temp = nodo.getRight();
         nodo.setRight(temp.getLeft());
         temp.setLeft(nodo);
@@ -26,8 +24,6 @@ class RBT<T extends Comparable<T>> {
     }
     
     private NOD_RBT<T> rotarDerecha(NOD_RBT<T> nodo) {
-        System.out.println("Rotando a la derecha el nodo: " + nodo.getElement());
-        
         NOD_RBT<T> temp = nodo.getLeft();
         nodo.setLeft(temp.getRight());
         temp.setRight(nodo);
@@ -39,27 +35,26 @@ class RBT<T extends Comparable<T>> {
     }
     
     private void cambiarColores(NOD_RBT<T> nodo) {
-        System.out.println("Cambiando colores en nodo: " + nodo.getElement());
         nodo.setColor(NOD_RBT.ROJO);
         nodo.getLeft().setColor(NOD_RBT.NEGRO);
         nodo.getRight().setColor(NOD_RBT.NEGRO);
     }
     
     public void insertar(T el) {
-        R = insertarRecursivo(R, el);
+        R = insertar(R, el);
         R.setColor(NOD_RBT.NEGRO);
     }
     
-    private NOD_RBT<T> insertarRecursivo(NOD_RBT<T> nodo, T el) {
+    private NOD_RBT<T> insertar(NOD_RBT<T> nodo, T el) {
         if (nodo == null) {
             return new NOD_RBT<>(el, NOD_RBT.ROJO);
         }
         
         int comparacion = el.compareTo(nodo.getElement());
         if (comparacion < 0) {
-            nodo.setLeft(insertarRecursivo(nodo.getLeft(), el));
+            nodo.setLeft(insertar(nodo.getLeft(), el));
         } else if (comparacion > 0) {
-            nodo.setRight(insertarRecursivo(nodo.getRight(), el));
+            nodo.setRight(insertar(nodo.getRight(), el));
         } else {
             nodo.incrementarContador();
             return nodo;
